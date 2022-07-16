@@ -234,6 +234,7 @@ public class NoSpawnChunks extends JavaPlugin
 			}
 
 			unloadChunks(sender, args);
+			WorldListener.disSpawnChunk();
 			return;
 		}
 

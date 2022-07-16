@@ -6,6 +6,7 @@ package net.dmulloy2.nospawnchunks.listeners;
 import lombok.AllArgsConstructor;
 import net.dmulloy2.nospawnchunks.NoSpawnChunks;
 
+import org.bukkit.Bukkit;
 import org.bukkit.World;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -58,6 +59,13 @@ public class WorldListener implements Listener
 		{
 			if (world.getPlayers().isEmpty())
 				plugin.unloadLater(world, 20L);
+		}
+	}
+
+	public static void disSpawnChunk() {
+		for (World world : Bukkit.getWorlds()) {
+			world.setKeepSpawnInMemory(false);
+			System.out.println(world.getName() + " Unloaded!");
 		}
 	}
 }
